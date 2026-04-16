@@ -27,7 +27,7 @@
             overflow-x: hidden;
         }
 
-        /* --- Hujan Hati Standar tapi Halus --- */
+        /* --- DESIGN TETAP: Hujan Hati --- */
         .heart-rain-container {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -52,7 +52,7 @@
             100% { transform: translateY(110vh) translateX(20px) rotate(360deg); opacity: 0; }
         }
 
-        /* --- Layout --- */
+        /* --- Layout Utama --- */
         .main-content { position: relative; z-index: 1; }
 
         header {
@@ -62,12 +62,8 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.7)), url('foto_berdua.jpg') no-repeat center center/cover;
-        }
-
-        /* Fallback background jika foto tidak ada */
-        header:not([style*="background-image"]) {
-            background: linear-gradient(135deg, #1a0005 0%, #050505 100%);
+            /* FOTO SELFIE BERDUA GITHUB */
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.7)), url('IMG-20260214-WA0053.jpg') no-repeat center center/cover;
         }
 
         .main-title {
@@ -90,12 +86,8 @@
 
         #days-number { font-size: 3.5rem; color: var(--p-pink); font-family: 'Playfair Display', serif; }
 
-        /* --- Countdown Section (Ulang Tahun) --- */
-        .countdown-section {
-            padding: 50px 20px;
-            text-align: center;
-        }
-
+        /* --- DESIGN TETAP: Countdown Ultah --- */
+        .countdown-section { padding: 50px 20px; text-align: center; }
         .countdown-card {
             display: inline-block;
             background: rgba(255, 77, 109, 0.05);
@@ -103,46 +95,32 @@
             padding: 20px 40px;
             border-radius: 20px;
         }
+        .countdown-title { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--s-pink); margin-bottom: 10px; }
+        .countdown-timer { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--white); font-weight: bold; }
 
-        .countdown-title { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; color: var(--s-pink); margin-bottom: 10px; }
-        .countdown-timer { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--white); font-weight: bold; }
-
-        /* --- Selfie & Story Section --- */
-        .story-section {
-            padding: 50px 20px 100px;
-            max-width: 900px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        /* Frame Foto Selfie */
+        /* --- DESIGN TETAP: Selfie Polaroid & Story --- */
+        .story-section { padding: 50px 20px 100px; max-width: 900px; margin: 0 auto; text-align: center; }
+        
         .selfie-frame {
-            width: 100%;
-            max-width: 500px;
-            height: 400px;
+            width: 100%; max-width: 500px; height: 500px;
             margin: 0 auto 50px;
-            border: 10px solid #fff;
-            border-radius: 20px;
+            border: 15px solid #fff;
+            border-bottom: 60px solid #fff; /* Polaroid Style */
+            border-radius: 5px;
             box-shadow: 0 15px 50px rgba(0,0,0,0.8);
-            background: url('foto_berdua.jpg') no-repeat center center/cover;
+            background: url('IMG-20260214-WA0053.jpg') no-repeat center center/cover;
             position: relative;
-            transform: rotate(-3deg); /* Efek polaroid miring */
+            transform: rotate(-3deg);
             transition: 0.5s;
         }
 
         .selfie-frame:hover { transform: rotate(0deg) scale(1.02); }
 
         .selfie-label {
-            position: absolute;
-            bottom: -40px; left: 50%;
+            position: absolute; bottom: -45px; left: 50%;
             transform: translateX(-50%);
-            background: #fff;
             color: #333;
-            padding: 10px 30px;
-            border-radius: 50px;
-            font-family: 'Dancing Script', cursive;
-            font-size: 1.8rem;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            font-family: 'Dancing Script', cursive; font-size: 2rem;
             white-space: nowrap;
         }
 
@@ -153,38 +131,14 @@
             padding: 60px;
             backdrop-filter: blur(15px);
             position: relative;
-            margin-top: 80px; /* Jarak dari foto */
+            margin-top: 40px;
         }
 
-        .story-card h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.8rem;
-            color: var(--s-pink);
-            margin-bottom: 30px;
-        }
+        .story-card h2 { font-family: 'Playfair Display', serif; font-size: 2.8rem; color: var(--s-pink); margin-bottom: 30px; }
+        .story-card p { font-size: 1rem; line-height: 2; margin-bottom: 20px; opacity: 0.8; }
+        .story-card .highlight { color: var(--p-pink); font-weight: bold; }
 
-        .story-card p {
-            font-size: 1rem;
-            line-height: 2;
-            margin-bottom: 20px;
-            opacity: 0.8;
-        }
-
-        .story-card .highlight {
-            color: var(--p-pink);
-            font-weight: bold;
-        }
-
-        .story-card::before {
-            content: '“';
-            position: absolute;
-            top: 10px; left: 30px;
-            font-size: 8rem;
-            font-family: 'Playfair Display', serif;
-            color: rgba(255, 77, 109, 0.1);
-        }
-
-        /* --- Profiles Section --- */
+        /* --- DESIGN TETAP: Profile Cards --- */
         .profile-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
@@ -204,15 +158,13 @@
             text-align: center;
         }
 
-        .profile-card:hover { transform: translateY(-10px); border-color: var(--p-pink); }
-
         .profile-pic {
-            width: 120px; height: 120px;
+            width: 150px; height: 150px;
             border-radius: 50%;
             border: 4px solid var(--p-pink);
             object-fit: cover;
             margin-bottom: 20px;
-            background: #222; /* Fallback jika foto tidak ada */
+            background: #222;
         }
 
         .detail-item {
@@ -224,8 +176,7 @@
             justify-content: space-between;
         }
 
-        /* --- Footer --- */
-        footer { text-align: center; padding: 100px 20px 50px; opacity: 0.5; border-top: 1px solid var(--border); background: rgba(0,0,0,0.4); }
+        footer { text-align: center; padding: 100px 20px 50px; opacity: 0.5; border-top: 1px solid var(--border); }
 
         @keyframes glowTitle {
             0%, 100% { text-shadow: 0 0 20px var(--p-pink); }
@@ -233,12 +184,7 @@
         }
 
         @media (max-width: 768px) {
-            .main-title { font-size: 4rem; }
-            .counter-box { padding: 20px 30px; }
-            .selfie-frame { height: 300px; }
-            .selfie-label { font-size: 1.5rem; }
-            .story-card { padding: 30px; }
-            .story-card h2 { font-size: 2rem; }
+            .main-title { font-size: 3.5rem; }
             .profile-grid { grid-template-columns: 1fr; }
         }
     </style>
@@ -250,7 +196,7 @@
     <div class="main-content">
         <header>
             <div class="main-title">Fahmi & Anggi</div>
-            <p style="font-style: italic; opacity: 0.8; font-size: 1.1rem; letter-spacing: 1px;">"Takdir dari Sepatu yang Tertukar di Perpustakaan"</p>
+            <p style="font-style: italic; opacity: 0.8;">"Takdir dari Sepatu yang Tertukar di Perpustakaan"</p>
             <div class="counter-box">
                 <span id="days-number">0</span>
                 <p style="letter-spacing: 2px; font-size: 0.8rem; opacity: 0.6;">HARI MENJALIN CINTA</p>
@@ -260,29 +206,28 @@
         <section class="countdown-section">
             <div class="countdown-card">
                 <div class="countdown-title" id="birthday-who">Ultah Berikutnya</div>
-                <div class="countdown-timer" id="birthday-timer">00 Hari 00 Jam 00 Menit</div>
+                <div class="countdown-timer" id="birthday-timer">Menghitung...</div>
             </div>
         </section>
 
         <section class="story-section">
-            
             <div class="selfie-frame">
                 <div class="selfie-label">Kita Sejak Kelas 8 ❤️</div>
             </div>
 
             <div class="story-card">
                 <h2>Cerita Kita</h2>
-                <p>Siapa sangka, heningnya <span class="highlight">Perpustakaan Sekolah</span> saat Kelas 8 akan menjadi saksi bisu bersatunya dua hati? Takdir punya cara yang kocak dan tak terduga untuk mempertemukan kita.</p>
-                <p>Hari itu, entah bagaimana, <span class="highlight">sepatu kita tertukar di perpustakaan!</span> Kejadian canggung yang membuat kita panik mencari sepatu masing-masing di antara rak buku. Tapi dari momen tak terduga itu, percakapan dimulai.</p>
-                <p>Dari saling mengembalikan sepatu, tumbuh rasa saling kenal, rasa sayang, dan akhirnya... <span class="highlight">kita bersama</span>. Dari Kelas <span class="highlight">VIII C</span> dan <span class="highlight">8I</span>, kita membuktikan kalau takdir sepatu yang tertukar membawa kita ke jalan yang sama.</p>
-                <p style="font-style: italic; color: var(--s-pink); font-size: 1.1rem;">"Sepatu boleh tertukar di perpustakaan, tapi hati kita sudah pas di tempatnya."</p>
+                <p>Siapa sangka, heningnya <span class="highlight">Perpustakaan Sekolah</span> saat Kelas 8 menjadi saksi bisu bersatunya dua hati? Takdir punya cara unik untuk kita.</p>
+                <p>Hari itu, <span class="highlight">sepatu kita tertukar di perpustakaan!</span> Kejadian canggung yang membuat kita panik mencari sepatu masing-masing di antara rak buku. Tapi di situlah, awal cerita kita dimulai.</p>
+                <p>Dari Kelas VIII C dan 8I, kita membuktikan kalau takdir sepatu yang tertukar membawa kita ke jalan yang sama.</p>
+                <p style="font-style: italic; color: var(--s-pink);">"Sepatu boleh tertukar di perpustakaan, tapi hati kita sudah pas di tempatnya."</p>
             </div>
         </section>
 
         <section class="profile-grid">
             <div class="profile-card">
-                <img src="foto_fahmi.jpg" class="profile-pic" alt="Foto Fahmi" onerror="this.src='https://i.ibb.co/L50HjHh/fahmi-anggi-selfie.jpg'">
-                <h2 style="font-family: 'Playfair Display', serif; margin-bottom: 20px;">Fahmi</h2>
+                <img src="IMG-20260314-WA0164(1).jpg" class="profile-pic" alt="Fahmi">
+                <h2 style="font-family: 'Playfair Display', serif; margin-bottom: 10px;">M. Khoirul Fahmi</h2>
                 <span style="font-size: 0.9rem; color: var(--s-pink); margin-bottom: 20px; display: block;">🗓️ 11 Desember 2011 | VIII C</span>
                 <div class="detail-item"><span>🏠 Rumah:</span> <span>Balongbiru</span></div>
                 <div class="detail-item"><span>⛰️ Hobi:</span> <span>Mendaki</span></div>
@@ -291,8 +236,8 @@
             </div>
 
             <div class="profile-card">
-                <img src="foto_anggi.jpg" class="profile-pic" alt="Foto Anggi" onerror="this.src='https://i.ibb.co/7XvXn4r/anggi-sekolah.jpg'">
-                <h2 style="font-family: 'Playfair Display', serif; margin-bottom: 20px;">Anggi</h2>
+                <img src="IMG-20260313-WA0036(1).jpg" class="profile-pic" alt="Anggi">
+                <h2 style="font-family: 'Playfair Display', serif; margin-bottom: 10px;">Anggita Hidayah</h2>
                 <span style="font-size: 0.9rem; color: var(--s-pink); margin-bottom: 20px; display: block;">🗓️ 11 Juni 2012 | 8I</span>
                 <div class="detail-item"><span>🏠 Rumah:</span> <span>Kwaron</span></div>
                 <div class="detail-item"><span>😴 Hobi:</span> <span>Tidur</span></div>
@@ -303,80 +248,51 @@
 
         <footer>
             <p style="font-family: 'Dancing Script', cursive; font-size: 2.5rem; color: var(--p-pink);">Together Forever</p>
-            <p style="font-size: 0.9rem; opacity: 0.6; margin-bottom: 10px;">Created for Anggi & Fahmi</p>
             <p>&copy; 2026 Sepatu Tertukar di Perpus, Hati Bersatu.</p>
         </footer>
     </div>
 
     <script>
-        // Hitung Hari Bersama
+        // Hitung Hari
         const start = new Date("2026-02-02");
-        setInterval(() => {
+        function updateDays() {
             const now = new Date();
             const diff = Math.ceil((now - start) / (1000 * 60 * 60 * 24));
             document.getElementById("days-number").innerText = diff;
-        }, 1000);
+        }
+        updateDays();
 
-        // --- JavaScript Hitung Mundur Ultah (BARU) ---
-        function updateBirthdayCountdown() {
+        // Countdown Ultah
+        function updateBday() {
             const now = new Date();
             const year = now.getFullYear();
-            
-            // Tanggal Ultah (Bulan indeks 0-11)
             const bdays = [
-                { name: "Fahmi", date: new Date(year, 11, 11) }, // 11 Des
-                { name: "Anggi", date: new Date(year, 5, 11) }    // 11 Juni
+                { name: "Fahmi", date: new Date(year, 11, 11) },
+                { name: "Anggi", date: new Date(year, 5, 11) }
             ];
-
-            // Tentukan ultah berikutnya
-            let nextBday = null;
-            let whoBday = "";
-
-            // Cek jika ultah tahun ini sudah lewat, pakai tahun depan
-            bdays.forEach(bday => {
-                if (bday.date < now) {
-                    bday.date.setFullYear(year + 1);
-                }
-            });
-
-            // Urutkan ultah yang paling dekat
+            bdays.forEach(b => { if (b.date < now) b.date.setFullYear(year + 1); });
             bdays.sort((a, b) => a.date - b.date);
-            nextBday = bdays[0].date;
-            whoBday = bdays[0].name;
-
-            // Hitung selisih waktu
-            const diff = nextBday - now;
-            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-            const minutes = Math.floor((diff / 1000 / 60) % 60);
-
-            // Update Tampilan
-            document.getElementById('birthday-who').innerText = "Ultah " + whoBday;
-            document.getElementById('birthday-timer').innerText = 
-                `${days} Hari ${hours} Jam ${minutes} Menit`;
+            const diff = bdays[0].date - now;
+            const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+            document.getElementById('birthday-who').innerText = "Ultah " + bdays[0].name;
+            document.getElementById('birthday-timer').innerText = `${d} Hari ${h} Jam Lagi`;
         }
+        updateBday();
+        setInterval(updateBday, 3600000);
 
-        updateBirthdayCountdown();
-        setInterval(updateBirthdayCountdown, 60000); // Update setiap menit
-
-        // --- JavaScript Rain with Standard Heart ---
+        // Hujan Hati
         function createHeart() {
             const container = document.getElementById('heart-rain');
             const heart = document.createElement('div');
             heart.classList.add('falling-heart');
             heart.innerHTML = '❤️'; 
-
             heart.style.left = Math.random() * 100 + 'vw';
-            const size = (Math.random() * 0.8 + 1) + 'rem';
-            heart.style.fontSize = size;
-            const duration = (Math.random() * 4 + 5) + 's';
-            heart.style.animationDuration = duration;
-            heart.style.opacity = Math.random() * 0.5 + 0.4;
-
+            heart.style.animationDuration = (Math.random() * 3 + 4) + 's';
             container.appendChild(heart);
-            setTimeout(() => { heart.remove(); }, 10000);
+            setTimeout(() => heart.remove(), 7000);
         }
-        setInterval(createHeart, 350);
+        setInterval(createHeart, 300);
     </script>
 </body>
 </html>
