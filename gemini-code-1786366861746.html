@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Color Tracking</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Library Tracking.js sebagai pengganti OpenCV di Web -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tracking.js/1.1.3/tracking-min.js"></script>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col items-center justify-center p-8">
+
+  <div class="max-w-2xl w-full text-center space-y-6">
+    <div>
+      <h1 class="text-3xl font-extrabold text-yellow-400 drop-shadow-md">
+        Yellow Object Tracker
+      </h1>
+      <p class="text-slate-400 mt-2">Versi HTML/JS dari OpenCV Color Tracking</p>
+    </div>
+
+    <!-- Container Video & Canvas -->
+    <div class="relative inline-block border-2 border-slate-700 rounded-xl overflow-hidden shadow-2xl bg-black">
+      
+      <!-- Video Asli dari Webcam -->
+      <video id="webcam" width="640" height="480" preload autoplay loop muted playsinline></video>
+      
+      <!-- Canvas Overlay untuk menggambar kotak -->
+      <canvas id="canvas" width="640" height="480" class="absolute top-0 left-0"></canvas>
+      
+    </div>
+    
+    <p class="text-sm text-slate-500">Arahkan benda berwarna kuning terang ke kamera.</p>
+  </div>
+
+  <script>
+    const canvas = document.getElementById('canvas');
+    const context = canvas.getContext('2d');
+
+    // Inisialisasi Tracker khusus untuk warna Kuning
+    const tracker = new tracking.ColorTracker(['yellow']);
+    
+    // Filter agar tidak mendeteksi bintik warna kecil (mirip contourArea > 500 di Python)
+    tracker.setMinDimension(30);
+
+    // Mulai tracking menggunakan kamera
+    tracking.track('#webcam', tracker, { camera: true });
+
+    // Event listener yang berjalan di setiap frame saat warna terdeteksi
+    tracker.on('track', function(event) {
+      // Bersihkan gambar kotak di frame sebelumnya
+      context.clearRect(0, 0, canvas.width, canvas.height);
+
+      // Loop untuk setiap objek kuning yang ditemukan
+      event.data.forEach(function(rect) {
+        
+        // 1. Gambar Bounding Box (Kotak Kuning)
+        context.strokeStyle = '#ffe600';
+        context.lineWidth = 4;
+        context.strokeRect(rect.x, rect.y, rect.width, rect.height);
+
+        // 2. Tulis Teks di atas kotak
+        context.font = 'bold 16px Arial';
+        context.fillStyle = '#ffe600';
+        context.fillText('Target Tracked', rect.x, rect.y - 10);
+
+        // 3. Gambar titik tengah (Center Point) berwarna merah
+        const centerX = rect.x + (rect.width / 2);
+        const centerY = rect.y + (rect.height / 2);
+        
+        context.fillStyle = '#ff0000';
+        context.beginPath();
+        context.arc(centerX, centerY, 5, 0, 2 * Math.PI);
+        context.fill();
+      });
+    });
+  </script>
+</body>
+</html>
