@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anggita's World 💜 | To My Favorite Person</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💜</text></svg>">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Ambient Bioluminescence Particles Canvas -->
+  <canvas id="ambient-canvas"></canvas>
+
+  <!-- Audio Player Elements -->
+  <audio id="bgm-audio" preload="auto" loop></audio>
+
+  <!-- Top Navigation Bar -->
+  <header class="top-nav" id="top-nav">
+    <div class="nav-container">
+      <div class="nav-brand">
+        <span class="brand-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="#D6BCFA" stroke="#D6BCFA"/>
+          </svg>
+        </span>
+        <span class="brand-text" id="nav-brand-title">Anggita's World</span>
+      </div>
+
+      <nav class="nav-links">
+        <a href="#surface" class="nav-link active" data-target="surface">Surface</a>
+        <a href="#memories" class="nav-link" data-target="memories">Our Journey</a>
+        <a href="#gallery" class="nav-link" data-target="gallery">Gallery</a>
+        <a href="#letter" class="nav-link" data-target="letter">The Letter</a>
+        <a href="#wishes" class="nav-link" data-target="wishes">Wishes</a>
+      </nav>
+
+      <!-- Mobile Menu Toggle -->
+      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle Menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Side Depth Indicator (Right Side Gauge) -->
+  <div class="side-depth-gauge" id="depth-gauge">
+    <div class="depth-number" id="depth-display">0.0m</div>
+    <div class="depth-track">
+      <div class="depth-bar-fill" id="depth-bar-fill"></div>
+      <div class="depth-marker" id="depth-marker"></div>
+    </div>
+    <div class="depth-zone-name" id="depth-zone-name">Surface</div>
+  </div>
+
+  <!-- Floating Audio Player Widget (Bottom Left) -->
+  <div class="floating-audio-widget" id="audio-widget">
+    <div class="audio-disc" id="audio-disc">
+      <i class="fa-solid fa-compact-disc"></i>
+    </div>
+    <div class="audio-info">
+      <div class="audio-title-marquee">
+        <span id="audio-title">Until I Found You</span>
+      </div>
+      <span class="audio-artist" id="audio-artist">Stephen Sanchez</span>
+    </div>
+    <button class="audio-control-btn" id="audio-btn" aria-label="Play / Pause Music">
+      <i class="fa-solid fa-play" id="audio-icon"></i>
+    </button>
+    <div class="sound-wave" id="sound-wave">
+      <span></span><span></span><span></span><span></span>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT CONTAINER -->
+  <main class="ocean-container">
+
+    <!-- ==================== 1. SURFACE ZONE (HERO) ==================== -->
+    <section class="section hero-section" id="surface" data-depth="0">
+      <div class="hero-content">
+        
+        <!-- Glowing Badge -->
+        <div class="hero-badge">
+          <span class="badge-dot"></span>
+          <span id="hero-badge-text">A MESSAGE CARRIED IN ON THE TIDE, JUST FOR YOU</span>
+        </div>
+
+        <!-- Main Heading with Lilac & Gold Gradient -->
+        <h1 class="hero-title">
+          <span class="hero-title-main" id="hero-main-title">To My Dearest Girlfriend,</span>
+          <span class="hero-title-highlight" id="hero-highlight-title">My Favorite Person ✨</span>
+        </h1>
+
+        <!-- Romantic Lead Subtitle -->
+        <p class="hero-description" id="hero-subtitle">
+          Somewhere past the breakers, ada ribuan rasa dan cerita yang tersimpan rapi untukmu. Scroll ke bawah, arungi setiap kedalaman kenangan kita, dan temukan surat spesial yang kutulis dari lubuk hati terdalam.
+        </p>
+
+        <!-- Call to Action Buttons -->
+        <div class="hero-actions">
+          <a href="#memories" class="btn btn-primary glow-button">
+            <span>Begin the Descent</span>
+            <i class="fa-solid fa-arrow-down"></i>
+          </a>
+          <a href="#letter" class="btn btn-secondary glass-button">
+            <i class="fa-solid fa-envelope-open-text"></i>
+            <span>Jump Straight to the Letter</span>
+          </a>
+        </div>
+
+        <!-- Live Love Days Ribbon -->
+        <div class="love-ribbon" id="hero-love-ribbon">
+          <i class="fa-solid fa-heart beat-heart"></i>
+          <span id="hero-days-counter">Menghitung hari-hari indah bersamamu...</span>
+        </div>
+
+        <!-- Couple Profile Cards (Anggita & Fahmi) -->
+        <div class="couple-profile-container">
+          <div class="couple-card">
+            <div class="couple-avatar-glow">
+              <img src="assets/images/fotoanggi.jpg" alt="Anggita" class="couple-avatar-img" onerror="this.src='fotoanggi.jpg'">
+              <span class="avatar-fallback" style="display:none">🌸</span>
+            </div>
+            <div class="couple-info">
+              <h3 class="couple-name" id="couple-recipient-name">Anggita Isnayni Hidayah</h3>
+              <p class="couple-role">The Prettiest Girlfriend 🌸</p>
+              <span class="couple-badge"><i class="fa-solid fa-cake-candles"></i> 20 Juni 2011 · Gemini ♊</span>
+            </div>
+          </div>
+
+          <div class="couple-connector">
+            <div class="couple-heart-badge">
+              <i class="fa-solid fa-heart beat-heart"></i>
+            </div>
+            <span class="connector-line"></span>
+          </div>
+
+          <div class="couple-card">
+            <div class="couple-avatar-glow">
+              <img src="assets/images/fotofahmi.jpg" alt="Fahmi" class="couple-avatar-img" onerror="this.src='fotofahmi.jpg'">
+              <span class="avatar-fallback" style="display:none">🤍</span>
+            </div>
+            <div class="couple-info">
+              <h3 class="couple-name" id="couple-sender-name">Mochamad Khoirul Fahmi</h3>
+              <p class="couple-role">Your Lucky Guy 🤍</p>
+              <span class="couple-badge"><i class="fa-solid fa-cake-candles"></i> 11 Desember 2011 · Sagitarius ♐</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Scroll Down Mouse Indicator -->
+        <a href="#memories" class="scroll-dive-indicator">
+          <div class="mouse-icon">
+            <div class="wheel"></div>
+          </div>
+          <span class="dive-text">SCROLL TO DIVE IN</span>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- ==================== 2. OUR JOURNEY (DEPTH ZONES) ==================== -->
+    <section class="section journey-section" id="memories" data-depth="500">
+      <div class="section-container">
+        
+        <div class="section-header text-center">
+          <span class="section-pill">CHRONICLES OF US</span>
+          <h2 class="section-title">The Deeper We Go, <span class="text-gold italic">The Sweeter It Gets</span></h2>
+          <p class="section-subtitle">Setiap kedalaman menyimpan jejak langkah, tawa, dan cerita yang mengukir rasa cinta ini semakin kuat.</p>
+        </div>
+
+        <!-- Timeline / Depth Cards Container -->
+        <div class="timeline-container" id="timeline-cards-container">
+          <!-- Dynamically populated from config.js -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== 3. POLAROID GALLERY ==================== -->
+    <section class="section gallery-section" id="gallery" data-depth="1500">
+      <div class="section-container">
+        
+        <div class="section-header text-center">
+          <span class="section-pill">MOMENTS FROZEN IN TIME</span>
+          <h2 class="section-title">Our Visual <span class="text-gold italic">Memories</span></h2>
+          <p class="section-subtitle">Kumpulan potret senyuman manis dan momen yang selalu membuat hati ini terasa hangat.</p>
+        </div>
+
+        <!-- Polaroid Grid -->
+        <div class="polaroid-grid" id="polaroid-grid">
+          <!-- Dynamically populated from config.js -->
+        </div>
+
+        <div class="gallery-hint">
+          <i class="fa-solid fa-wand-magic-sparkles"></i>
+          <span>Klik foto untuk melihat dengan pesan manis</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== 4. THE SECRET LETTER (ENVELOPE) ==================== -->
+    <section class="section letter-section" id="letter" data-depth="2800">
+      <div class="section-container">
+        
+        <div class="section-header text-center">
+          <span class="section-pill">FROM THE DEEPEST RECESSED OF MY HEART</span>
+          <h2 class="section-title">A Letter For <span class="text-gold italic" id="letter-for-name">Anggita</span></h2>
+          <p class="section-subtitle">Sentuh segel lilin emas untuk membuka amplop dan membaca pesan rahasia ini.</p>
+        </div>
+
+        <!-- Interactive 3D Wax Seal Envelope Container -->
+        <div class="envelope-wrapper" id="envelope-wrapper">
+          <div class="envelope" id="envelope">
+            <!-- Envelope Back Wall -->
+            <div class="envelope-back"></div>
+            
+            <!-- Letter Sheet Paper Inside -->
+            <div class="letter-paper" id="letter-paper">
+              <div class="paper-header">
+                <span class="paper-stamp">💌 FOR YOU</span>
+                <span class="paper-date" id="paper-current-date">Today</span>
+              </div>
+              
+              <div class="paper-body">
+                <h3 class="paper-salutation" id="paper-salutation">Halo Anggita, Gadis Cantikku,</h3>
+                <div class="paper-paragraphs" id="paper-paragraphs">
+                  <!-- Dynamically populated from config.js -->
+                </div>
+                <div class="paper-footer">
+                  <p class="paper-closing" id="paper-closing">Dengan segenap rasa sayang,</p>
+                  <p class="paper-signature" id="paper-signature">Your Favorite Person 🤍</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Envelope Pocket & Flaps -->
+            <div class="envelope-left"></div>
+            <div class="envelope-right"></div>
+            <div class="envelope-bottom"></div>
+            <div class="envelope-top" id="envelope-top"></div>
+
+            <!-- Gold Wax Seal Button -->
+            <div class="wax-seal" id="wax-seal" role="button" tabindex="0" title="Klik untuk membuka surat">
+              <div class="seal-inner">
+                <i class="fa-solid fa-heart seal-heart"></i>
+              </div>
+              <span class="seal-prompt">OPEN ME</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="letter-controls text-center" id="letter-controls" style="display: none;">
+          <button class="btn btn-secondary glass-button" id="close-letter-btn">
+            <i class="fa-solid fa-envelope"></i>
+            <span>Lipat & Simpan Surat Kembali</span>
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== 5. REASONS & WISHES (ABYSSAL ZONE) ==================== -->
+    <section class="section wishes-section" id="wishes" data-depth="4000">
+      <div class="section-container">
+        
+        <div class="section-header text-center">
+          <span class="section-pill">INFINITE APPRECIATION</span>
+          <h2 class="section-title">Little Reasons Why <span class="text-gold italic">You're So Special</span></h2>
+          <p class="section-subtitle">Sentuh setiap kartu botol harapan di bawah ini untuk membuka alasan mengapa kamu begitu berarti.</p>
+        </div>
+
+        <!-- Interactive Reasons Cards Grid -->
+        <div class="reasons-grid" id="reasons-grid">
+          <!-- Dynamically populated from config.js -->
+        </div>
+
+        <!-- Live Love Duration Card -->
+        <div class="love-duration-card glass-card">
+          <div class="duration-header">
+            <div class="heart-pulse-icon">
+              <i class="fa-solid fa-heart"></i>
+            </div>
+            <h3>Perjalanan Cinta Kita</h3>
+            <p id="relationship-start-label">Dimulai sejak 2 Februari 2026</p>
+          </div>
+
+          <div class="counter-grid">
+            <div class="counter-box">
+              <span class="counter-num" id="count-days">0</span>
+              <span class="counter-label">HARI</span>
+            </div>
+            <div class="counter-box">
+              <span class="counter-num" id="count-hours">00</span>
+              <span class="counter-label">JAM</span>
+            </div>
+            <div class="counter-box">
+              <span class="counter-num" id="count-minutes">00</span>
+              <span class="counter-label">MENIT</span>
+            </div>
+            <div class="counter-box">
+              <span class="counter-num" id="count-seconds">00</span>
+              <span class="counter-label">DETIK</span>
+            </div>
+          </div>
+          
+          <p class="counter-footer-text">...dan setiap detiknya selalu berharga bersamamu ✨</p>
+        </div>
+
+        <!-- Upcoming Milestones Countdown Section -->
+        <div class="milestones-section glass-card">
+          <div class="milestones-header text-center">
+            <span class="section-pill">UPCOMING SPECIAL MOMENTS</span>
+            <h3 class="milestones-title">Menghitung Mundur Momen Spesial <span class="text-gold italic">Kita</span> ⏳</h3>
+            <p class="milestones-subtitle">Setiap detik adalah penantian indah untuk merayakan hari-hari bahagia bersamamu.</p>
+          </div>
+
+          <div class="countdown-cards-grid" id="countdown-cards-grid">
+            <!-- Dynamically populated from config.js -->
+          </div>
+        </div>
+
+        <!-- Future Promise Box -->
+        <div class="promise-box glass-card text-center">
+          <div class="promise-icon">💫</div>
+          <h3 id="closing-title">Janji & Harapan Masa Depan</h3>
+          <p id="closing-message">Semoga perjalanan kita ke depan selalu dipenuhi dengan tawa, kesehatan, kebahagiaan, dan cinta yang semakin mendalam.</p>
+          
+          <div class="interactive-heart-action">
+            <button class="btn btn-primary glow-button send-love-btn" id="send-love-btn">
+              <i class="fa-solid fa-heart"></i>
+              <span>Kirimkan Pelukan & Cinta Virtual (Tap Here!)</span>
+            </button>
+            <span class="love-count-badge" id="love-count-badge">❤️ Dikirim: 0 kali</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Photo Lightbox Modal -->
+  <div class="photo-modal" id="photo-modal">
+    <div class="modal-backdrop" id="modal-backdrop"></div>
+    <div class="modal-dialog">
+      <button class="modal-close-btn" id="modal-close-btn" aria-label="Close modal">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="modal-polaroid">
+        <div class="modal-tape"></div>
+        <img id="modal-img" src="" alt="Memory Photo">
+        <div class="modal-caption-box">
+          <p class="modal-date" id="modal-date">Memory Date</p>
+          <p class="modal-caption" id="modal-caption">Memory Caption</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <p class="footer-quote">"In every depth of the ocean, my love remains for you."</p>
+      <p class="footer-credit">
+        Crafted with <i class="fa-solid fa-heart footer-heart"></i> for <span id="footer-recipient-name">Anggita</span> · Forever & Always
+      </p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
+
